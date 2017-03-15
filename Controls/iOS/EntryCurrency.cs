@@ -1,40 +1,42 @@
 
 using Xamarin.Forms;
-using PSM.Function;
+using DevAzt.FormsX.Controls;
 using Xamarin.Forms.Platform.iOS;
 using UIKit;
 
-[assembly: ExportRenderer(typeof(PSM.Function.EntryCurrency),
-                          typeof(PSM.Droid.Function.EntryCurrency))]
-namespace PSM.Droid.Function
+[assembly: ExportRenderer(typeof(DevAzt.FormsX.Controls.EntryCurrency),
+                          typeof(Test.iOS.Controls.EntryCurrency))]
+namespace Test.iOS.Controls
 {
     public class EntryCurrency : ViewRenderer
     {
 
         UITextField Box;
-        PSM.Function.EntryCurrency Currency;
+        DevAzt.FormsX.Controls.EntryCurrency Currency;
 
         protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.View> e)
         {
             base.OnElementChanged(e);
-            Currency = Element as PSM.Function.EntryCurrency;
+            Currency = Element as DevAzt.FormsX.Controls.EntryCurrency;
             if (Currency != null && e.OldElement == null)
             {
-                Box = new UITextField();
+				Box = new UITextField();
+				Box.Layer.BorderColor = UIColor.LightGray.CGColor;
+				Box.Layer.BorderWidth = 1f;
                 if (!string.IsNullOrEmpty(Currency.Text))
                 {
                     Box.Text = Currency.Text;
                 }
                 Box.Placeholder = "$0.00";
-                Box.KeyboardType = UIKeyboardType.NumbersAndPunctuation;
-                Box.ValueChanged += Box_ValueChanged;
+				Box.KeyboardType = UIKeyboardType.NumberPad;
+				Box.EditingChanged += Box_ValueChanged;
                 SetNativeControl(Box);
             }
         }
 
         private void Box_ValueChanged(object sender, System.EventArgs e)
         {
-            Box.ValueChanged -= Box_ValueChanged;
+            Box.EditingChanged -= Box_ValueChanged;
             if (Box != null)
             {
                 var text = Box.Text;
@@ -48,7 +50,7 @@ namespace PSM.Droid.Function
                     //selection
                 }
             }
-            Box.ValueChanged += Box_ValueChanged;
+            Box.EditingChanged += Box_ValueChanged;
         }
     }
 }

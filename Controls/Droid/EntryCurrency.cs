@@ -12,22 +12,22 @@ using Android.Views;
 using Android.Widget;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
-using PSM.Function;
+using DevAzt.FormsX.Controls;
 
-[assembly: ExportRenderer(typeof(PSM.Function.EntryCurrency),
-                          typeof(PSM.Droid.Function.EntryCurrency))]
-namespace PSM.Droid.Function
+[assembly: ExportRenderer(typeof(DevAzt.FormsX.Controls.EntryCurrency),
+                          typeof(Test.Droid.Controls.EntryCurrency))]
+namespace Test.Droid.Controls
 {
     public class EntryCurrency : ViewRenderer
     {
 
         EditText Box;
-        PSM.Function.EntryCurrency Currency;
+		DevAzt.FormsX.Controls.EntryCurrency Currency;
 
         protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.View> e)
         {
             base.OnElementChanged(e);
-            Currency = Element as PSM.Function.EntryCurrency;
+            Currency = Element as DevAzt.FormsX.Controls.EntryCurrency;
             if (Currency != null && e.OldElement == null)
             {
                 Box = new EditText(Context);

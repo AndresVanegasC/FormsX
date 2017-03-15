@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace PSM.Function
+namespace DevAzt.FormsX.Controls
 {
 
     public class EntryCurrency : View

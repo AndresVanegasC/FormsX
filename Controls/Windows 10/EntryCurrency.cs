@@ -1,4 +1,4 @@
-﻿using PSM.Function;
+﻿using DevAzt.FormsX.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,28 +11,21 @@ using Windows.UI.Xaml.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
 
-[assembly: ExportRenderer(typeof(PSM.Function.EntryCurrency),
-                          typeof(PSM.UWP.Function.EntryCurrency))]
-namespace PSM.UWP.Function
+[assembly: ExportRenderer(typeof(DevAzt.FormsX.Controls.EntryCurrency),
+                          typeof(Test.UWP.Controls.EntryCurrency))]
+namespace Test.UWP.Controls
 {
     public class EntryCurrency : ViewRenderer<View, TextBox>
     {
         TextBox Box { get; set; }
-        PSM.Function.EntryCurrency Currency;
+        DevAzt.FormsX.Controls.EntryCurrency Currency;
 
         protected override void OnElementChanged(ElementChangedEventArgs<View> e)
         {
             base.OnElementChanged(e);
-            Currency = Element as PSM.Function.EntryCurrency;
+            Currency = Element as DevAzt.FormsX.Controls.EntryCurrency;
             if (Currency != null && e.OldElement == null)
             {
-                /*var boudns = Window.Current.Bounds;
-                var width = 100D;
-                var height = 50D;
-                if (boudns.Width != 0)
-                {
-                    width = boudns.Width - 10;
-                }*/
                 Box = new TextBox();
                 if (!string.IsNullOrEmpty(Currency.Text))
                 {
