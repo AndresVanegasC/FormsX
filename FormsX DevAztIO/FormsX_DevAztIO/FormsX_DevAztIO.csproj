@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{71171E44-8537-43DB-B9FA-3427AC3F14E1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FormsX_DevAztIO</RootNamespace>
+    <AssemblyName>FormsX_DevAztIO</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Chat\ChatMessage.cs" />
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Chat\ChatMessageManager.cs" />
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Chat\ChatType.cs" />
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Handler\AsyncCommand.cs" />
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Handler\AsyncCommandBase.cs" />
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Handler\IAsyncCommand.cs" />
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Programming\Facebook\FacebookOAuthRequest.xaml.cs">
+      <DependentUpon>FacebookOAuthRequest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Programming\Facebook\GraphApi.cs" />
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Programming\Facebook\OauthExample.cs" />
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Programming\Facebook\OAuthResult.cs" />
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Programming\Interface\AddResult.cs" />
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Programming\Interface\DevAztApi.cs" />
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Programming\Interface\IDevAztApi.cs" />
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Programming\Interface\Result.cs" />
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Programming\Interface\SearchResult.cs" />
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Programming\Interface\StandarResult.cs" />
+    <Compile Include="DevAzt\FormsX\ApplicationModel\Programming\Interface\UpdateResult.cs" />
+    <Compile Include="DevAzt\FormsX\Controls\ExtendedLabel.cs" />
+    <Compile Include="DevAzt\FormsX\Controls\LabelTappedExtension.cs" />
+    <Compile Include="DevAzt\FormsX\Device\Sensors\CameraCaptureTask.cs" />
+    <Compile Include="DevAzt\FormsX\Helpers\StreamHelper.cs" />
+    <Compile Include="DevAzt\FormsX\Net\HttpClient\IRestForms.cs" />
+    <Compile Include="DevAzt\FormsX\Net\HttpClient\Param.cs" />
+    <Compile Include="DevAzt\FormsX\Net\HttpClient\RestForms.cs" />
+    <Compile Include="DevAzt\FormsX\Reflection\FormClass.cs" />
+    <Compile Include="DevAzt\FormsX\SIM\IMovilNetwork.cs" />
+    <Compile Include="DevAzt\FormsX\SIM\IPhoneManager.cs" />
+    <Compile Include="DevAzt\FormsX\SIM\MovilNetwork.cs" />
+    <Compile Include="DevAzt\FormsX\SIM\PhoneManager.cs" />
+    <Compile Include="DevAzt\FormsX\Storage\Isolated\Settings.cs" />
+    <Compile Include="DevAzt\FormsX\Storage\SQLite\LiteConnection\DataBase.cs" />
+    <Compile Include="DevAzt\FormsX\Storage\SQLite\LiteConnection\IDataBase.cs" />
+    <Compile Include="DevAzt\FormsX\Storage\SQLite\LiteConnection\Keys.cs" />
+    <Compile Include="DevAzt\FormsX\Xaml\EventsView.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevAzt\FormsX\Storage\SQLite\StandarDB\LocalDB.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media, Version=2.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.6.2\lib\portable-net45+wp80+win8+wpa81\Plugin.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media.Abstractions, Version=2.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.6.2\lib\portable-net45+wp80+win8+wpa81\Plugin.Media.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\sqlite-net-pcl.1.1.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCL.raw, Version=0.8.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SQLitePCL.raw.0.8.6\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCL.raw.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.2.3.3.193\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.2.3.3.193\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.2.3.3.193\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DevAzt\FormsX\ApplicationModel\Programming\Facebook\FacebookOAuthRequest.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets'))" />
+  </Target>
+</Project>
