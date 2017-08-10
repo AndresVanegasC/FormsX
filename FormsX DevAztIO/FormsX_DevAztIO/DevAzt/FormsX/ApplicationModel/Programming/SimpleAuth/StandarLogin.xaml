@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DevAzt.FormsX.ApplicationModel.Programming.SimpleAuth.StandarLogin"
+             BackgroundColor="{Binding PrimaryColor}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Image Grid.Row="0" Source="{Binding BackgroundImage}" Aspect="AspectFill"/>
+            <BoxView BackgroundColor="{Binding PrimaryColor}" Opacity="0.5"/>
+        </Grid>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center" x:Name="StackProgress" IsVisible="False">
+            <ActivityIndicator IsEnabled="True" Color="{Binding PrimaryColor}" IsVisible="True" IsRunning="True" />
+            <Label Text="Mensaje cargando..."/>
+        </StackLayout>
+        <Grid x:Name="GridContent" Grid.Row="0" Padding="12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" Padding="10,100,10,0">
+                <Image Source="{Binding AppIcon}" HorizontalOptions="Start" WidthRequest="60" HeightRequest="60" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Inicia sesión en" TextColor="White" FontSize="Large" FontAttributes="Bold" />
+                    <Label Text="{Binding AppName}" TextColor="White" FontSize="Large" FontAttributes="Bold"/>
+                </StackLayout>
+                <Label Text="{Binding Message}" TextColor="White" FontSize="Medium" />
+                <BoxView Color="White" HeightRequest="2" Margin="0,0,280,0"/>
+                <StackLayout Padding="0,40,0,0">
+                    <Entry x:Name="EntryOne" Text="{Binding EntryOneValue}" TextColor="White" PlaceholderColor="White" Placeholder="{Binding EntryOne}"/>
+                    <Entry x:Name="EntryTwo" Text="{Binding EntryTwoValue}" IsPassword="True" TextColor="White" PlaceholderColor="White" Placeholder="{Binding EntryTwo}" Margin="0,20,0,0"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Grid.Row="1">
+                <Button Text="{Binding ButtonOne}" TextColor="White" BackgroundColor="{Binding PrimaryColor}" Clicked="Button_Clicked"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+    
+</ContentPage>

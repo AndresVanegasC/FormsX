@@ -3,18 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using HockeyApp.Android;
-using FormsX_DevAztIO;
+// using HockeyApp.Android;
 
 namespace DevAzt.FormsX.Droid.HockeyApp
 {
-    
+    /*
     public class HockeyCrashManagerSettings : CrashManagerListener
     {
         Application _application;
@@ -29,6 +22,10 @@ namespace DevAzt.FormsX.Droid.HockeyApp
             get
             {
                 string iduser = "0";
+                if(Forms.App.Oauth != null)
+                {
+                    iduser = Forms.App.Oauth.IdUsuario.ToString();
+                }
                 return iduser;
             }
         }
@@ -38,6 +35,15 @@ namespace DevAzt.FormsX.Droid.HockeyApp
             get
             {
                 string description = "";
+                try
+                {
+                    var appjson = Forms.App.ToJson();
+                    description = "{ App: " + appjson + " }";
+                }
+                catch
+                {
+
+                }
                 return description;
             }
         }
@@ -47,4 +53,5 @@ namespace DevAzt.FormsX.Droid.HockeyApp
             return true;
         }
     }
+    */
 }

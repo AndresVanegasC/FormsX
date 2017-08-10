@@ -14,11 +14,7 @@ namespace DevAzt.FormsX.Storage.Isolated
         private IDictionary<string, object> Isolated = Application.Current.Properties;
 
         public static Settings Data { get; set; }
-
-        static Settings(){
-            Data = new Settings();
-        }
-
+        
         public async Task SaveAsync()
         {
             await Application.Current.SavePropertiesAsync();
@@ -32,7 +28,7 @@ namespace DevAzt.FormsX.Storage.Isolated
                 {
                     return Isolated[key];
                 }
-                return null;
+                return "";
             }
 
             set
@@ -197,7 +193,7 @@ namespace DevAzt.FormsX.Storage.Isolated
                 value = Isolated[key];
                 return true;
             }
-            value = null;
+            value = "";
             return false;
         }
 

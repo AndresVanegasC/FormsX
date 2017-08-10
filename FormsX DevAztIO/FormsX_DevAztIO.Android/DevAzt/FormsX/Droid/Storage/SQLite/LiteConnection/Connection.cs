@@ -13,10 +13,10 @@ namespace DevAzt.FormsX.Droid.SQLite.LiteConnection
         public LocalDB GetDataBase()
         {
             var fileName = Keys.DataBaseName;
-            //var internalpath = Android.OS.Environment.ExternalStorageDirectory.Path;
-            //var path = Path.Combine(internalpath, fileName);
-            var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            var path = Path.Combine(documentsPath, fileName);
+            var internalpath = Android.OS.Environment.ExternalStorageDirectory.Path;
+            var path = Path.Combine(internalpath, fileName);
+            //var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            //var path = Path.Combine(documentsPath, fileName);
             return new LocalDB(path);
         }
     }

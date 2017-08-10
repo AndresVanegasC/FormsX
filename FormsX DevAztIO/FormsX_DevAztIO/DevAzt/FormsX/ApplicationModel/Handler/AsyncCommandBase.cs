@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DevAzt.FormsX.ApplicationModel.Handler
 {
-    public abstract class AsyncCommandBase : IAsyncCommand
+    public abstract class AsyncCommandBase: IAsyncCommand
     {
         public event EventHandler CanExecuteChanged;
 

@@ -2,6 +2,7 @@
 using DevAzt.FormsX.Storage.SQLite.LiteConnection;
 using System;
 using System.IO;
+using DevAzt.FormsX.Storage.SQLite.StandarDB;
 
 [assembly: Xamarin.Forms.Dependency(typeof(DevAzt.FormsX.iOS.Storage.SQLite.LiteConnection.Connection))]
 namespace DevAzt.FormsX.iOS.Storage.SQLite.LiteConnection

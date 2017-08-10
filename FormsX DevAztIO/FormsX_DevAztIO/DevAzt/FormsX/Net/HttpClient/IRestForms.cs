@@ -13,5 +13,7 @@ namespace DevAzt.FormsX.Net.HttpClient
         Task<T> Post<T, K>(string url, K objecttosend);
 
         Task<T> Get<T>(string url, Dictionary<string, object> formdata = null);
+
+        Task<T> Delete<T>(string url, int id);
     }
 }

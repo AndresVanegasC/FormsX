@@ -1,4 +1,6 @@
-﻿using Forms.DevAzt.FormsX.Net.HttpClient;
+﻿using DevAzt.FormsX.Json;
+using DevAzt.FormsX.Net.HttpClient;
+using Patrimonio.FormsX.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,11 +12,36 @@ namespace DevAzt.FormsX.iOS.Net.Http
 {
     public class RestForms : IRestForms
     {
+        public async Task<T> Delete<T>(string url, int id)
+        {
+            try
+            {
+                var client = new RestSharp.RestClient(url);
+                Debugger.WriteLine("RestForms: " + url);
+                var request = new RestSharp.RestRequest(RestSharp.Method.DELETE);
+                var response = await client.ExecuteTaskAsync(request);
+                if (response != null)
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        Debugger.WriteLine("RestForms: " + response.Content);
+                        return response.Content.DeserializeObject<T>();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debugger.WriteLine("RestForms: " + ex.StackTrace);
+            }
+            return default(T);
+        }
+
         public async Task<T> Get<T>(string url, Dictionary<string, object> formdata = null)
         {
             try
             {
                 var client = new RestSharp.RestClient(url);
+                Debugger.WriteLine("RestForms: " + url);
                 var request = new RestSharp.RestRequest(RestSharp.Method.GET);
                 foreach (var item in formdata)
                 {
@@ -25,13 +52,14 @@ namespace DevAzt.FormsX.iOS.Net.Http
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(response.Content);
+                        Debugger.WriteLine("RestForms: " + response.Content);
+                        return response.Content.DeserializeObject<T>();
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                Debugger.WriteLine("RestForms: " + ex.StackTrace);
             }
             return default(T);
         }
@@ -41,6 +69,7 @@ namespace DevAzt.FormsX.iOS.Net.Http
             try
             {
                 var client = new RestSharp.RestClient(url);
+                Debugger.WriteLine("RestForms: " + url);
                 var request = new RestSharp.RestRequest(RestSharp.Method.POST);
                 if (simpleparams != null)
                 {
@@ -70,13 +99,14 @@ namespace DevAzt.FormsX.iOS.Net.Http
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(response.Content);
+                        Debugger.WriteLine("RestForms: " + response.Content);
+                        return response.Content.DeserializeObject<T>();
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                Debugger.WriteLine("RestForms: " + ex.StackTrace);
             }
             return default(T);
         }
@@ -86,6 +116,7 @@ namespace DevAzt.FormsX.iOS.Net.Http
             try
             {
                 var client = new RestSharp.RestClient(url);
+                Debugger.WriteLine("RestForms: " + url);
                 var request = new RestSharp.RestRequest(RestSharp.Method.POST);
                 request.AddJsonBody(objecttosend);
                 var response = await client.ExecuteTaskAsync(request);
@@ -93,13 +124,14 @@ namespace DevAzt.FormsX.iOS.Net.Http
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(response.Content);
+                        Debugger.WriteLine("RestForms: " + response.Content);
+                        return response.Content.DeserializeObject<T>();
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                Debugger.WriteLine("RestForms: " + ex.StackTrace);
             }
             return default(T);
         }

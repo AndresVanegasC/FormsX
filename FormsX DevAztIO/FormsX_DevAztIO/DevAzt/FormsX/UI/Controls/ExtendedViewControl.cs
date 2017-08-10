@@ -7,9 +7,9 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace DevAzt.FormsX.Controls
+namespace DevAzt.FormsX.UI.Controls
 {
-    public class ExtendedLabel : Label
+    public class ExtendedViewControl
     {
 
         public static string FontSource { get; set; }

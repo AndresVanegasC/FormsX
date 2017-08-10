@@ -15,6 +15,7 @@ namespace DevAzt.FormsX.ApplicationModel.Programming.Interface
         public DevAztApi(string baseurl)
         {
             BaseUrl = baseurl;
+            Controller = typeof(T).Name.ToLower();
         }
 
         public string Controller { get; set; }
@@ -74,17 +75,14 @@ namespace DevAzt.FormsX.ApplicationModel.Programming.Interface
         {
             try
             {
-                var url = $"{BaseUrl}/{Controller}/get";
+                
                 var client = RestForms.Instance;
                 if (param.Type == ParamType.File)
                 {
                     throw new Exception("El parametro no puede ser de tipo Strean o ByteArray");
                 }
-                Dictionary<string, object> data = new Dictionary<string, object>
-                {
-                    { param.Name, param.Element.ToString() }  
-                };
-                var result = await client.Get<Result<T>>(url, data);
+                var url = $"{BaseUrl}/{Controller}/get/{param.Element}";
+                var result = await client.Get<Result<T>>(url, new Dictionary<string, object>());
                 System.Diagnostics.Debug.WriteLine("DevAztApi: url={0} param={1}", url, param);
                 return result;
             }

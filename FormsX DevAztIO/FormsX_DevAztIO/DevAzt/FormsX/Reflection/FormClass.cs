@@ -31,8 +31,15 @@ namespace DevAzt.FormsX.Reflection
             Dictionary<string, object> dictionary = new Dictionary<string, object>();
             foreach (PropertyInfo pi in this.GetType().GetRuntimeProperties())
             {
-                var value = pi.GetValue(this).ToString();
-                dictionary.Add(pi.Name, value);
+                try
+                {
+                    var value = pi.GetValue(this).ToString();
+                    dictionary.Add(pi.Name, value);
+                }
+                catch
+                {
+                    dictionary.Add(pi.Name, "");
+                }
             }
             return dictionary;
         }

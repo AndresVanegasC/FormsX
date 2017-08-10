@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevAzt.FormsX.Xaml
+namespace DevAzt.FormsX.UI.Xaml
 {
     public interface IEventsView<T>
     {

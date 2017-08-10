@@ -1,4 +1,4 @@
-﻿using Forms.DeviceManagers;
+﻿using DevAzt.FormsX.SIM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
